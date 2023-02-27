@@ -87,9 +87,20 @@ class DoublyLinkedList:
             current = current.prev
         print()
 
+    def reverse_singly(self):
+        first = self.head
+        second = first.next
+        while second:
+            temp = second.next
+            second.next = first
+            first = second
+            second = temp
+        self.head.next = None
+        self.head = first
+        print(self.head.value)
 
 
-linked_list = LinkedList(10)
+linked_list = DoublyLinkedList(10)
 linked_list.prepend(16)
 linked_list.append(7)
 linked_list.append(12)
@@ -109,28 +120,32 @@ linked_list.append(19)
 # print(linked_list.tail.value)
 # print(linked_list.tail)
 # print(linked_list.tail.next)
-print(linked_list.length)
+# print(linked_list.length)
 
+# linked_list.print_val()
+# linked_list.insert(2,121)
+# linked_list.print_val()
+# #linked_list.remove(6)
+# linked_list.print_val()
+# print(linked_list.length)
+# linked_list.print_reversed()
+# linked_list.remove(4)
+# linked_list.print_reversed()
+# linked_list.print_val()
+# print(linked_list.length)
+# linked_list.insert(6,93)
+# print(linked_list.length)
+# linked_list.print_val()
+# print(linked_list.length)
+# linked_list.remove(6)
+# linked_list.print_val()
+# linked_list.print_reversed()
+# linked_list.remove(0)
+# linked_list.print_val()
+# linked_list.print_reversed()
 linked_list.print_val()
-linked_list.insert(2,121)
+linked_list.reverse_singly()
 linked_list.print_val()
-#linked_list.remove(6)
-linked_list.print_val()
-print(linked_list.length)
-linked_list.print_reversed()
-linked_list.remove(4)
-linked_list.print_reversed()
-linked_list.print_val()
-print(linked_list.length)
-linked_list.insert(6,93)
-print(linked_list.length)
-linked_list.print_val()
-print(linked_list.length)
-linked_list.remove(6)
-linked_list.print_val()
-linked_list.print_reversed()
-linked_list.remove(0)
-linked_list.print_val()
-linked_list.print_reversed()
+
 
 
