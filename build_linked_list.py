@@ -1,4 +1,4 @@
-class NewNode:
+class Node:
     def __init__(self, value, next, prev):
         self.value = value
         self.next = next
@@ -6,24 +6,24 @@ class NewNode:
 
 class DoublyLinkedList:
     def __init__(self, value):
-        self.head = NewNode(value, None, None)
+        self.head = Node(value, None, None)
         self.length = 1
         self.tail = self.head
     
     def append(self, value):
-        new_node = NewNode(value, None, self.tail)
+        new_node = Node(value, None, self.tail)
         self.tail.next = new_node
         self.tail = new_node
         self.length += 1
 
     def prepend(self, value):
-        new_node = NewNode(value, self.head, None)
+        new_node = Node(value, self.head, None)
         self.head.prev = new_node
         self.head = new_node
         self.length += 1
 
     def insert(self, index, value):
-        new_node = NewNode(value, None, None)
+        new_node = Node(value, None, None)
         if index == 0:
             self.prepend(value)
         elif index >= self.length:
