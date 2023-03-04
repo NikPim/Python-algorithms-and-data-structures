@@ -55,12 +55,17 @@ class BinarySearchTree:
         prev_node = self.find_previous(value)
         node_to_remove = self.lookup(value)
         print(prev_node.value, node_to_remove.value)
-        # if node_to_remove.left and node_to_remove.right:
-        #     if prev_node.value < node_to_remove.value:
-        #         prev_node.right = self.find_successor(node_to_remove.right)
-        #     else:
-        #         prev_node.right = self.find_successor(node_to_remove.right)
-        if node_to_remove.left and not node_to_remove.right:
+        if node_to_remove.left and node_to_remove.right: #not finished, doesn't remove the succesor so it leads to duplicate value
+            succesor = self.find_successor(node_to_remove.right)
+            if prev_node.value < node_to_remove.value:
+                prev_node.right = succesor
+                prev_node.right.right = node_to_remove.right
+                prev_node.right.left = node_to_remove.left
+            else:
+                prev_node.left = succesor
+                prev_node.left.right = node_to_remove.right
+                prev_node.left.left = node_to_remove.left
+        elif node_to_remove.left and not node_to_remove.right:
             if prev_node.value < node_to_remove.value:
                 prev_node.left = node_to_remove.left
             else:
@@ -102,17 +107,19 @@ bts.insert(12)
 bts.insert(14)
 bts.insert(19)
 bts.insert(10)
+bts.insert(13)
+bts.insert(8)
 
 print('     ', bts.root.value)
 print(' ', bts.root.left.value,'     ', bts.root.right.value)
 print(bts.root.left.left.value, '     ', bts.root.right.left.value, ' ', bts.root.right.right.value)
 print('         ', bts.root.right.right.left.value,' ', bts.root.right.right.right.value)
-print('                ', bts.root.right.right.right.right.value)
+print('        ',bts.root.right.right.left.left.value,'  ', bts.root.right.right.right.left.value, bts.root.right.right.right.right.value)
 
-bts.remove(19)
+bts.remove(12)
 
 print('     ', bts.root.value)
 print(' ', bts.root.left.value,'     ', bts.root.right.value)
 print(bts.root.left.left.value, '     ', bts.root.right.left.value, ' ', bts.root.right.right.value)
 print('         ', bts.root.right.right.left.value,' ', bts.root.right.right.right.value)
-print('                ', bts.root.right.right.right.right.value)
+print('        ',bts.root.right.right.left.left.value,'  ', bts.root.right.right.right.left.value, bts.root.right.right.right.right.value)
