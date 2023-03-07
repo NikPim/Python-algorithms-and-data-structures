@@ -116,10 +116,5 @@ print(bts.root.left.left.value, '     ', bts.root.right.left.value, ' ', bts.roo
 print('         ', bts.root.right.right.left.value,' ', bts.root.right.right.right.value)
 print('        ',bts.root.right.right.left.left.value,'  ', bts.root.right.right.right.left.value, bts.root.right.right.right.right.value)
 
-bts.remove(12)
 
-print('     ', bts.root.value)
-print(' ', bts.root.left.value,'     ', bts.root.right.value)
-print(bts.root.left.left.value, '     ', bts.root.right.left.value, ' ', bts.root.right.right.value)
-print('         ', bts.root.right.right.left.value,' ', bts.root.right.right.right.value)
-print('        ',bts.root.right.right.left.left.value,'  ', bts.root.right.right.right.left.value, bts.root.right.right.right.right.value)
+print(bts.inorder_traversing(bts.root))
